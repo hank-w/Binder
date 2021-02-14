@@ -4,7 +4,7 @@ import { Link, useLocation } from "react-router-dom";
 const SidebarLogo = ({ to, Icon }) => {
   const loc = useLocation();
 
-  console.log("Location", loc);
+  // console.log("Location", loc);
   return (
     <Link
       to={to}

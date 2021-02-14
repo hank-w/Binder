@@ -5,6 +5,7 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
+  Redirect,
   Link,
   useRouteMatch,
   useParams,
@@ -13,6 +14,11 @@ import {
 import Home from "./pages/Home";
 import LandingPage from "./pages/Landing";
 import BindrRoute from "./components/BindrRoute";
+import Student from "./pages/student/Student";
+import Tutor from "./pages/tutor/Tutor";
+import Settings from "./pages/Settings";
+import Sessions from "./pages/student/Sessions";
+import Profile from "./pages/Profile";
 
 function App() {
   return (
@@ -21,17 +27,25 @@ function App() {
         <BindrRoute path="/home">
           <Home />
         </BindrRoute>
-        <BindrRoute path="/search">
-          <Home />
+        {/*  Main paths */}
+        <BindrRoute path="/student">
+          <Student />
         </BindrRoute>
-        <BindrRoute path="/browse">
-          <Home />
+        <BindrRoute path="/tutor">
+          <Tutor />
+        </BindrRoute>
+
+        {/* User specific */}
+        <BindrRoute path="/profile">
+          <Profile />
         </BindrRoute>
         <BindrRoute path="/sessions">
-          <Home />
+          <Sessions />
         </BindrRoute>
-        <Route path="/">
-          <LandingPage />
+
+        <Route>
+          {/* Redirect to /home by default */}
+          <Redirect to="/home" />
         </Route>
       </Switch>
     </Router>
