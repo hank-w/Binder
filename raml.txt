@@ -1,0 +1,196 @@
+#%RAML 1.0
+---
+title: Binder
+baseUri: http://api.binder.com/
+
+/users:
+  description: users include tutors and students
+  /tutors:
+    description: collection of tutors
+    get:
+      description: get a list of tutors
+    post:
+      description: create a tutor
+    put:
+      description: update tutor
+      queryParameters:
+        tutorId:
+          description: tutor id is required to update tutor
+          displayName: tutorId
+          type: integer
+          example: 45
+          required: true
+    /{tutorId}:
+      description: tutor entity
+      get:
+        description: get the tutor with tutorId = {tutorId}
+        responses:
+          200:
+            body:
+              application/json:
+                example: |
+                  {
+                  "tutorId": 1,
+                  "tutorName": "Noah Sealy",
+                  "tutorEmail": "noah.sealy@email.ca",
+                  "username": "noah.sealy",
+                  "password": "password1234",
+                  "tutorUpvotes": 10,
+                  "tutorDownvotes": 4,
+                  "totalSessions": 19,
+                  "elo": "171",
+                  "searchKeyWord1": "Machine Learning",
+                  "searchKeyWord2": "Python",
+                  "searchKeyWord3": "Rest API",
+                  "verified": "True",
+                  "verifiedSchool": "Dalhousie University",
+                  "mentalHealthVerified": "False"
+                  "paidHours": "45"
+                  "unpaidHours": "17",
+                  "profilePicture": "file.png",
+                  "endorsement": "True",
+                  "endorsementName": "Adidas",
+                  "endorsementLink": "adidas.com"
+                  }
+          404:
+            body:
+              application/json:
+                example: |
+                  {
+                  "message": "Tutor not found"
+                  }
+
+  /students:
+    description:
+        description: collection of students
+    get:
+      description: get a list of students
+    post:
+      description: create a tutor
+    put:
+      description: update student
+      queryParameters:
+        tutorId:
+          description: student id is required to update tutor
+          displayName: studentId
+          type: integer
+          example: 45
+          required: true
+    /{studentId}:
+      description: student entity
+      get:
+        description: get the tutor with tutorId = {tutorId}
+        responses:
+          200:
+            body:
+              application/json:
+                example: |
+                  {
+                  "studentId": 1,
+                  "studentName": "Noah Sealy",
+                  "studentEmail": "noah.sealy@email.ca",
+                  "username": "noah.sealy",
+                  "password": "password1234",
+                  "sessionHours": "46",
+                  "totalSessions": 16,
+                  "upvotes": 7,
+                  "downvotes": 19,
+                  "profilePicture": "file.png",
+                  }
+          404:
+            body:
+              application/json:
+                example: |
+                  {
+                  "message": "Student not found"
+                  }
+/sessions:
+  post:
+    description: create a new session
+  /{tutorId}:
+    description: tutor sessions
+    get:
+      description: get a list of sessions for specific tutor
+      responses:
+        200:
+          body:
+            application/json:
+              example: |
+                {
+                "sessionId: 12,
+                "tutorId": 45,
+                "studentId": 23,
+                "startTime": "15:00 01/03/2021",
+                "endTime": "16:00 01/03/2021",
+                "timeZone": "AST",
+                "category": "Machine Learning",
+                "upvote": "True",
+                "downvote": "False",
+                "review": "This tutor is so smart and nice!",
+                "fee": 35,
+                }
+        404:
+          body:
+            application/json:
+              example: |
+                {
+                "message": "Tutor not found"
+                }
+  /{studentId}:
+    description: student sessions
+    get:
+      description: get a list of sessions for specific student
+      responses:
+        200:
+          body:
+            application/json:
+              example: |
+                {
+                "sessionId: 12,
+                "tutorId": 45,
+                "studentId": 23,
+                "startTime": "15:00 01/03/2021",
+                "endTime": "16:00 01/03/2021",
+                "timeZone": "AST",
+                "category": "Machine Learning",
+                "upvote": "True",
+                "downvote": "False",
+                "review": "This tutor is so smart and nice!",
+                "fee": 35,
+                }
+        404:
+          body:
+            application/json:
+              example: |
+                {
+                "message": "Tutor not found"
+                }
+  /{sessionId}:
+    description: session entity
+    get:
+      description: get a session where sessionId = {sessionId}
+      responses:
+        200:
+          body:
+            application/json:
+              example: |
+                {
+                "sessionId: 12,
+                "tutorId": 45,
+                "studentId": 23,
+                "startTime": "15:00 01/03/2021",
+                "endTime": "16:00 01/03/2021",
+                "timeZone": "AST",
+                "category": "Machine Learning",
+                "upvote": "True",
+                "downvote": "False",
+                "review": "This tutor is so smart and nice!",
+                "fee": 35,
+                }
+        400:
+          body:
+            application/json:
+              example: |
+              {
+              "message": "Session not found"
+              }
