@@ -11,30 +11,35 @@ const Browse = (props) => {
         imageUrl="/tutor.jpg"
         isVerified={true}
         name="Tutor 1"
+        id="tutor1"
+      />
+      <TutorCard
+        bio="hellosadf there"
+        imageUrl="/tutor.jpg"
+        isVerified={true}
+        name="Tutor 2"
+        id="tutor2"
+      />
+      <TutorCard
+        bio="hello anaaamethere"
+        imageUrl="/tutor.jpg"
+        isVerified={true}
+        name="Tutor 3"
+        id="tutor3"
+      />
+      <TutorCard
+        bio="asdfhello there"
+        imageUrl="/tutor.jpg"
+        isVerified={true}
+        name="Tutor 4"
+        id="tutor4"
       />
       <TutorCard
         bio="hello there"
         imageUrl="/tutor.jpg"
         isVerified={true}
-        name="Tutor 1"
-      />
-      <TutorCard
-        bio="hello there"
-        imageUrl="/tutor.jpg"
-        isVerified={true}
-        name="Tutor 1"
-      />
-      <TutorCard
-        bio="hello there"
-        imageUrl="/tutor.jpg"
-        isVerified={true}
-        name="Tutor 1"
-      />
-      <TutorCard
-        bio="hello there"
-        imageUrl="/tutor.jpg"
-        isVerified={true}
-        name="Tutor 1"
+        name="Tutor 5"
+        id="tutor5"
       />
     </div>
   );

@@ -4,6 +4,7 @@ import BindrRoute from "../../components/BindrRoute";
 import SearchResult from "./SearchResult";
 import Home from "../Home";
 import Browse from "./Browse";
+import TutorProfile from "./TutorProfile";
 
 const Student = (props) => {
   let { path, url } = useRouteMatch();
@@ -16,8 +17,12 @@ const Student = (props) => {
       <Route path={`${path}/search/:searchRequest`}>
         <SearchResult />
       </Route>
-      <Route path={`${path}/browse`}>
+
+      <Route exact path={`${path}/browse`}>
         <Browse />
+      </Route>
+      <Route path={`${path}/browse/:tutorId`}>
+        <TutorProfile />
       </Route>
       <Route exact path={path}>
         <div className="flex-row">
