@@ -17,8 +17,9 @@ import BindrRoute from "./components/BindrRoute";
 import Student from "./pages/student/Student";
 import Tutor from "./pages/tutor/Tutor";
 import Settings from "./pages/Settings";
-import Sessions from "./pages/student/Sessions";
+import Sessions from "./pages/Sessions";
 import Profile from "./pages/Profile";
+import SessionChat from "./pages/SessionChat";
 
 function App() {
   return (
@@ -39,8 +40,11 @@ function App() {
         <BindrRoute path="/profile">
           <Profile />
         </BindrRoute>
-        <BindrRoute path="/sessions">
+        <BindrRoute exact path="/sessions">
           <Sessions />
+        </BindrRoute>
+        <BindrRoute path="/sessions/:sessionId">
+          <SessionChat />
         </BindrRoute>
 
         <Route>

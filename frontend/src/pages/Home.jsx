@@ -10,8 +10,9 @@ const Home = () => {
   const { path, url } = useRouteMatch();
 
   const search = () => {
-    console.log("searching for", searchTerm);
-    history.push(`/student/search/${searchTerm}`);
+    if (searchTerm) {
+      history.push(`/student/search/${searchTerm}`);
+    }
   };
 
   return (
@@ -32,7 +33,10 @@ const Home = () => {
             onChange={(e) => setSearchTerm(e.target.value)}
             value={searchTerm}
           />
-          <button className="m-2 cursor-pointer  w-10 h-10" onClick={search}>
+          <button
+            className="m-2 cursor-pointer  w-10 h-10"
+            onClick={() => search()}
+          >
             <MdSearch className="bg-blue-500 w-full h-full rounded" />
           </button>
         </span>
